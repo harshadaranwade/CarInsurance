@@ -1,0 +1,65 @@
+.custom-list{
+    padding-left: 0 !important;
+    }
+    div ul li{
+      padding: 10px;
+      list-style: none;
+      width: 243px;
+    }
+    
+    .arrow{
+      position : absolute;
+      left: 28%;
+    }
+    .arrow2{
+      position : absolute;
+      left: 46%;
+    
+    }
+    
+    .heading{
+      margin: 12px 0 -7px 15px;
+     // color: grey;
+      font-weight:500;
+    }
+    // .search{
+    //   margin: 15px 0 0 17px;
+    //   width: 511px;
+    //   height: 50px;
+    //   font-size: 18px;
+    // }
+    button{
+      margin-left: 70px;
+      background: #fb0;
+      color: black;
+      font-weight:500;
+    }
+    // .continue{
+    //   margin-left: 70px;
+    //   background: #fb0;
+    //   color: black;
+    //   font-weight: bold;
+    
+    // }
+    .container{
+      margin-top: 25px !important;
+    }
+    select{
+      width: 190px;
+    }
+    // button[_ngcontent-mcc-c11] {
+    //   margin-left: 70px !important;
+    //   background: #fb0 !important;
+    //   color: black !important;
+    //   font-weight: bold;
+    //   width: 200px !important;
+    // }
+    #search-icon{
+      position: absolute;
+      margin: -33px 0px 0px 495px;
+      font-size: 18px;
+    }
+    #insurancecar{
+      height: 250px;
+      width: 420px;
+  }

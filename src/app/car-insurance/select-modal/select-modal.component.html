@@ -1,0 +1,21 @@
+<div class="container w-75 mt-1">
+    <div class="row">
+        <div class="col-md-6 border rounded-start">
+            <label for="id1" class="form-label labelClass ">Select Model</label>
+            <input type="text" class="form-control modal-input ms-1 " id="id1" placeholder="Search Make"
+                [(ngModel)]="insuranceData.modelName">
+                <div class="row mt-2 ms-1">
+                    <div class="col-md-9 border m-1 rounded cursor-pointer" *ngFor="let item of modalList" (click)="selectModal(item.concat)">
+                        
+                        
+                        <span class="mx-1 modal-name">{{item.concat}}</span>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-6 border rounded-end">
+            <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
+        </div>
+
+    </div>
+
+</div>

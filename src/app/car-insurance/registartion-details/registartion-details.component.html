@@ -1,0 +1,70 @@
+<div class="container w-75 mt-1">
+    <div class="row">
+      <div class="col-md-6 border rounded-start">
+        <h4 class="mt-3 ms-2 ">When did you register your car?</h4>
+        <form [formGroup]="regForm">
+          <div class="row">
+            <div class="col-md-4 ms-5 me-4">
+              <select formControlName="year" class="form-select p-2" [(ngModel)]="insuranceData.regDetails.regYear">
+                <option value="">Select Year</option>
+                <option *ngFor="let year of years" [value]="year">{{year}}</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <select formControlName="month" class="form-select p-" [(ngModel)]="insuranceData.regDetails.regMonth">
+                <option value=""> Select Month</option>
+                <option *ngFor="let month of months" [value]="month">{{month}}</option>
+              </select>
+            </div>
+            <div class="mt-3 ms-5">
+              <mat-slide-toggle (click)="toggleDropdowns()"></mat-slide-toggle><span class="mx-4 fs-6 ">It's a
+                brand new Car</span>
+            </div>
+            <div class="row mt-4">
+              <button type="button" class="btn btn-warning w-75" *ngIf="isVisible == false" (click)="toggleform()">Continue</button>
+            </div>
+            <div *ngIf="isVisible == true">
+              <!-- <input type="search" name="search" class="form-control search" placeholder="search"
+                ><span id="search-icon"><i class="bi bi-search"></i></span> -->
+              <h5 class="heading"> Popular Locations </h5>
+              <div class="row">
+                <div class="col-md-5">
+                  <ul class="custom-list">
+                    <li *ngFor="let city of popularCities.slice(0, 5)"
+                      class="border rounded m-3 cursor-pointer" (click)="sendCity(city)">{{ city }} <span class="arrow"><i
+                          class="bi bi-chevron-right"></i></span></li>
+                  </ul>
+                </div>
+                <div class="col-md-5">
+                  <ul>
+                    <li *ngFor="let city of popularCities.slice(5)"
+                      class="border rounded m-3 cursor-pointer" (click)="sendCity(city)">{{ city }}<span class="arrow2"><i
+                          class="bi bi-chevron-right"></i></span>
+                    </li>
+                  </ul>
+  
+  
+                </div>
+              </div>
+              <button type="button" class="btn btn-warning w-75 " routerLink="/car-insurance/choose-plan">Continue</button>
+            </div>
+            <div>
+  
+            </div>
+          </div>
+        </form>
+  
+  
+  
+  
+      </div>
+      <div class="col-md-6 border rounded-end">
+        <img src="../../../assets/Images/carregistration.avif" id="insurancecar">
+        <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
+        
+      </div>
+  
+    </div>
+  
+  
+  </div>

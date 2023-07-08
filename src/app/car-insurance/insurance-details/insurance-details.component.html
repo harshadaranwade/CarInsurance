@@ -1,0 +1,45 @@
+<div class="container mt-3 text-left">
+  <div class="row">
+    <div class="col-12">
+      <!-- <img src="../../../assets/Images/carregistration.avif" id="insurancecar"> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 ">
+      <span class="fw-bold mx-2"> Car Name </span>: <span class="text-muted">{{insuranceData.brandName}}</span><span
+        class="mx-2" routerLink="/car-insurance"><i class="bi bi-pencil-square editBtn"></i></span>
+      <!-- routerLink="/car-insurance" -->
+    </div>
+    <hr class="horizontal">
+    <div class="col-12 ">
+      <span class="fw-bold mx-2"> Model Name </span>: <span class="text-muted">{{insuranceData.modelName}}</span><span
+        class="mx-2" [routerLink]="['/car-insurance/select-modal' ,insuranceData.brandName]"><i
+          class="bi bi-pencil-square editBtn"></i></span>
+    </div>
+    <hr class="horizontal">
+    <div class="col-12 ">
+      <span class="fw-bold mx-2"> Variant Name </span>: <span
+        class="text-muted">{{insuranceData.variantName}}</span><span class="mx-2"
+        [routerLink]="['/car-insurance/select-variant',insuranceData.modelName]"><i
+          class="bi bi-pencil-square editBtn"></i></span>
+    </div>
+    <hr class="horizontal">
+    <div class="col-12 ">
+      <span class="fw-bold mx-2"> Month and Year Of Registration </span>: <span
+        class="text-muted">{{insuranceData.regDetails.regMonth}} {{insuranceData.regDetails.regYear}}</span><span 
+        class="mx-2"  [routerLink]="['/car-insurance/registration-details']"><i class="bi bi-pencil-square editBtn"></i></span>
+    </div>
+    <hr class="horizontal">
+    <div class="col-12 ">
+      <span class="fw-bold mx-2">City Name </span>: <span
+        class="text-muted">{{insuranceData.regDetails.regCity}}</span><span class="mx-2"
+        [routerLink]="['/car-insurance/registration-details']"><i
+          class="bi bi-pencil-square editBtn"></i></span>
+    </div>
+   
+  </div>
+</div>
+<div class="gif rounded-pill shadow-lg d-flex">
+  <img src="../../../assets/Images/whatsapp_new.gif" class="rounded-pill" height="50" alt=""> 
+  <div class="text-muted fs-6 ms-1 mt-3">Live Chat</div>
+</div>

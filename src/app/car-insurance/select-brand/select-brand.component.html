@@ -1,0 +1,21 @@
+<div class="container mt-1 w-75">
+    <div class="row">
+        <div class="col-md-6 border  rounded-start">
+            <div class="mb-3">
+                <label for="id1" class="form-label labelClass ">Select Brand</label>
+                <input type="text" class="form-control w-75 brand-input ms-1" id="id1" placeholder="Search Make" [(ngModel)]="insuranceData.brandName">
+                <div class="row mt-2 ms-1">
+                    <div class="col-md-5 border m-1 rounded brand-name" *ngFor="let item of brandList" (click)="selectBrand(item.brandName)">
+                        <img [src]="item.imgPath" class="mx-1" alt="" height="25" width="25">
+                        
+                        <span class="mx-1">{{item.brandName}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 border rounded-end">
+            <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
+        </div>
+    </div>
+
+</div>

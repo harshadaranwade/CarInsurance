@@ -1,0 +1,105 @@
+<div class="container mt-1 w-75 ">
+    <div class="row">
+        <div class="border col-md-6 mt-2">
+            <div class="row  mx-3 mt-2">
+                <div class="col-md-5 mx-2 ms-4 border rounded cursor-pointer" *ngFor="let plan of planInfo?.plans"
+                    (click)="setPlan(plan.planName)"
+                    [ngClass]="plan.planName===selectedPlan ? 'border-warning border-2':'' ">
+
+                    <div class="d-flex align-items-start flex-column mb-3" style="height: 200px;">
+                        <div class=" p-2 fs-6 fw-bold">{{plan.planName}}</div>
+                        <div class=" mb-auto p-2 text-muted fs-6">{{plan.planDes}}</div>
+                        <div class="p-2 fw-bold"> ₹{{plan.netPremium}}</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row  mx-auto mt-2">
+                <div class="col-md-11 mx-4 border mt-2 rounded py-2">
+                    <label for="customRange1" class="form-label fw-bold">Insured Value(IDV)</label>
+                    <p class="fw-bold">₹{{insuranceData.selectedPlan.selectedIdv}}</p>
+                    <input type="range" class="form-range" id="customRange1"
+                        [(ngModel)]="insuranceData.selectedPlan.selectedIdv"
+                        [min]="selectedPlanInfo?.vehicle?.vehicleIDV?.minimumIdv"
+                        [max]="selectedPlanInfo?.vehicle?.vehicleIDV?.maximumIdv">
+                    <p class="d-flex justify-content-between">
+                        <span class="text-muted">₹{{selectedPlanInfo?.vehicle?.vehicleIDV?.minimumIdv}}</span>
+                        <span class="text-muted">₹{{selectedPlanInfo?.vehicle?.vehicleIDV?.maximumIdv}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="row  ms-3">
+                <div class="col-md-11 me-3 ms-2 border mt-2 scroll rounded">
+                    <p class="my-1 fs-6 text-muted">Add Extra Coverage (Valid for 1 year only)</p>
+                    <div class="form-check" *ngFor="let coverage of addOnCoverageList[0]?.subCovers; let i=index">
+                        <input class="form-check-input checkbox" type="checkbox" value="" id="flexCheckDefault"
+                            [(ngModel)]="coverage.selection"
+                            (ngModelChange)="calculateAddOnCoverage(coverage.selection,i)">
+                        <label class="form-check-label fs-6" for="flexCheckDefault">
+                            {{coverage.name}}
+                        </label>
+                        <p><span class="fw-bold fs-6 ms-3">₹{{coverage.netPremium}}</span></p>
+                        <hr class="mt-1">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row mt-2">
+                <div class="col-md-12 border rounded-end">
+                    <div class="col-md-5 ">
+                        <img src="../../../assets/Images/carregistration.avif" id="insurancecar">
+
+                    </div>
+                    <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
+                </div>
+                <div class="col-md-12 mt-2 border rounded p-2">
+                    <p class="fw-bold cost-breakUp">Cost Breakup</p>
+
+                    <div class="cost-breakUp d-flex justify-content-between " *ngIf="selectedPlan != 'ThirdPartyCover'">
+                        <span>Own Damage Premium</span>
+                        <span >₹{{insuranceData.selectedPlan.costCoverage.ownDamagePremium}}</span>
+                    </div>
+                    <hr>
+                    <div class="cost-breakUp d-flex justify-content-between ">
+                        <span>Third Party Premium</span>
+                        <span> ₹{{insuranceData.selectedPlan.costCoverage.thirdPartyPremium}}</span>
+                    </div>
+                    <hr>
+                    <div class="cost-breakUp d-flex justify-content-between " *ngIf="selectedPlan != 'ThirdPartyCover'">
+                        <span>Pay As You Drive Discount</span>
+                        <span>₹0</span>
+                    </div>
+                    <hr>
+                    <div class="cost-breakUp d-flex justify-content-between ">
+                        <span>Add-Ons Premium</span>
+                        <span>₹{{insuranceData.selectedPlan.costCoverage.addOnsPremium}}</span>
+                    </div>
+                    <hr>
+                    <div class="cost-breakUp d-flex justify-content-between " *ngIf="selectedPlan != 'ThirdPartyCover'">
+                        <span>NCB Discount</span>
+                        <span>- ₹{{insuranceData.selectedPlan.costCoverage.ncbDiscount}}</span>
+                    </div>
+                    <hr>
+
+                    <div class="cost-breakUp d-flex justify-content-between ">
+                        <span><b>Net Premium</b></span>
+                        <span>₹{{insuranceData.selectedPlan.costCoverage.netPremium}}</span>
+                    </div>
+                    <hr>
+                    <div class="cost-breakUp d-flex justify-content-between " *ngIf="selectedPlan != 'ThirdPartyCover'">
+                        <span>GST (18%)</span>
+                        <span> ₹{{totalGST}}</span>
+                    </div>
+                    <hr>
+                    <div class="cost-breakUp d-flex justify-content-between " *ngIf="selectedPlan != 'ThirdPartyCover'">
+                        <span><b>Total Amount(including GST)</b></span>
+                        <span> ₹{{insuranceData.selectedPlan.costCoverage.totalAmount}}</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+ul li a{
+    //color:white;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+.home-container{
+   background-image: url("../../assets/Images/banner7.jpg");
+    height:80vh;
+ background-size: 100% 100%;
+}
+.navbar-brand_logo{
+    height: 40px;
+    width: 55px;
+}
+.labelClass{
+    font-size: 15px;
+    font-weight: 500;
+}
+.btn-warning{
+     margin-top: 13px;
+     margin-left: 20px;
+    height:50px;
+    width: 180px;
+    
+}
+.no-border{
+    border:0 !important;
+    font-size:14px;
+}
+input:focus{
+    outline: 0 !important;
+}
+.healthBorder{
+border: 2px solid rgb(240, 231, 105);
+}
+.lowerbuttons{
+    font-size: 13px;
+    font-weight: 500;
+    height: 35px;
+}

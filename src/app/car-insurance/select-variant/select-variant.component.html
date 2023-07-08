@@ -1,0 +1,32 @@
+<div class="container w-75 mt-1">
+    <div class="row">
+        <div class="col-md-6 border rounded start">
+            <label for="id1" class="form-label labelClass ">Which 4 Wheeler do you own?</label>
+            <input type="text" class="form-control modal-input ms-1 " id="id1" placeholder="Search Variant"
+                [(ngModel)]="insuranceData.variantName">
+            <div class="row mt-2 ms-1 variant-list">
+                <div class="col-12 ">
+                    <ul class="nav nav-underline">
+                        <li class="nav-item cursor-pointer" *ngFor="let type of variantTypes">
+                            <a class="nav-link py-1 " [ngClass]="selectedVariant===type ? 'active':'text-muted'"
+                                aria-current="page" (click)="setVariantType(type)">{{type}}
+                            </a>
+                        </li>
+
+                    </ul>
+                    <ul class="list-group list-group-flush mt-2 cursor-pointer ">
+                        <li class="list-group-item" *ngFor="let variant of variantList | filter:selectedVariant"
+                            (click)="setVariantName(variant)">
+                            {{variant["Variant Name"]}}
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6 border rounded-end">
+            <app-insurance-details [insuranceData]="insuranceData"></app-insurance-details>
+        </div>
+
+    </div>
